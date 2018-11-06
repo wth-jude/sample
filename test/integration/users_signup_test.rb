@@ -25,9 +25,10 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
    end
    follow_redirect!
    assert_template 'users/show'
-   assert_not flash.empty? 
+   assert_not flash.empty?
    assert_not flash.alert
    assert_select 'aside.col-md-4'
    assert_select 'section.user_info'
+   assert is_logged_in?
  end
 end
